@@ -20,12 +20,108 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Toast/CONTROLLERS/Tabbar Controllers/TCreateToastVC.swift"
-            timestampString = "532693272.25716"
+            timestampString = "532698677.104313"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "473"
             endingLineNumber = "473"
             landmarkName = "btn_DoneClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Toast/CONTROLLERS/Tabbar Controllers/TCreateToast_AddCollabVC.swift"
+            timestampString = "532698677.104435"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1040"
+            endingLineNumber = "1040"
+            landmarkName = "remove(contact:contacts:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Toast.TCreateToast_AddCollabVC.remove(contact: Swift.String, contacts: inout Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Toast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/quocle/freelancer_projects/toast-ios/Toast/CONTROLLERS/Tabbar%20Controllers/TCreateToast_AddCollabVC.swift"
+                  timestampString = "532697963.850422"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1040"
+                  endingLineNumber = "1040"
+                  offsetFromSymbolStart = "41">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; Swift.Bool in Toast.TCreateToast_AddCollabVC.remove(contact: Swift.String, contacts: inout Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Toast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/quocle/freelancer_projects/toast-ios/Toast/CONTROLLERS/Tabbar%20Controllers/TCreateToast_AddCollabVC.swift"
+                  timestampString = "532697963.853943"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1040"
+                  endingLineNumber = "1040"
+                  offsetFromSymbolStart = "35">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Toast/CONTROLLERS/Tabbar Controllers/TCreateToastVC.swift"
+            timestampString = "532698677.104513"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "groupToast(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Toast/CONTROLLERS/Tabbar Controllers/TEditToastViewController.swift"
+            timestampString = "532698677.1046"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1157"
+            endingLineNumber = "1157"
+            landmarkName = "contactPicker(_:didRemoveContact:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Toast/CONTROLLERS/Tabbar Controllers/TEditToastViewController.swift"
+            timestampString = "532698677.104673"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
+            landmarkName = "editToastDetails()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

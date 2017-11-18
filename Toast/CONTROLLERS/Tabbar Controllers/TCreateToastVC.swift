@@ -597,8 +597,8 @@ class TCreateToastVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             if(!self.selectedEmails.contains(self.filteredEmails[indexPath.row]))
             {
                 let email = self.filteredEmails[indexPath.row]
-                //self.selectedEmails.append(self.filteredEmails[indexPath.row])
-                self.addContact(contact: email, contacts: &self.selectedEmails, contactPicker: toaste_picker)
+                self.selectedEmails.append(email)
+                self.addContact(contact: email, contactPicker: toaste_picker)
             }
             self.showselectedEmails()
         }
@@ -639,6 +639,7 @@ class TCreateToastVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func showselectedEmails()
     {
+        return
         self.txt_toaste.text = ""
         let attributedText = NSMutableAttributedString()
         
@@ -1010,17 +1011,16 @@ extension TCreateToastVC: THContactPickerDelegate {
     
     func contactPicker(_ contactPicker: THContactPickerView!, didRemoveContact contact: Any!) {
         if contactPicker == toaste_picker {
-            self.remove(contact: contact as! String, contacts: &self.selectedEmails)
+            guard let contact = contact as? String else { return }
+            self.remove(contact: contact, contacts: &self.selectedEmails)
         }
     }
     
     // MARK: Helper
-    func addContact(contact: String, contacts: inout [String], contactPicker: THContactPickerView) {
-        if contacts.contains(contact) { return }
+    func addContact(contact: String, contactPicker: THContactPickerView) {
         let style = THContactViewStyle(textColor: UIColor.black, backgroundColor: UIColor(hex : "e3d1a1"), cornerRadiusFactor: 2)
         let seletedStyle = THContactViewStyle(textColor: UIColor.black, backgroundColor: UIColor(hex : "e3d1a1"), cornerRadiusFactor: 2)
         contactPicker.addContact(contact, withName: contact, with: style, andSelectedStyle: seletedStyle)
-        contacts.append(contact)
     }
     
     func remove(contact: String, contacts: inout [String]) {

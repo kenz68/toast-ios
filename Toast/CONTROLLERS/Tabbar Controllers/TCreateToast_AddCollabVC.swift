@@ -43,6 +43,7 @@ class TCreateToast_AddCollabVC: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var notification_switch: UISwitch!
     @IBOutlet weak var lbl_category: UILabel!
     
+    @IBOutlet weak var collabolators_picker: THContactPickerView!
     
     var category = ""
     var message = ""
@@ -125,7 +126,7 @@ class TCreateToast_AddCollabVC: UIViewController, UITableViewDelegate, UITableVi
         
         self.lbl_category.text = "   A toast to celebrate \(category)"
         
-        
+        collabolators_picker.delegate = self
     }
     
     func createTimePicker()
@@ -288,7 +289,9 @@ class TCreateToast_AddCollabVC: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(!self.selectedEmails.contains(self.filteredEmails[indexPath.row]))
         {
-            self.selectedEmails.append(self.filteredEmails[indexPath.row])
+            let email = self.filteredEmails[indexPath.row]
+            self.selectedEmails.append(email)
+            self.addContact(contact: email, contactPicker: collabolators_picker)
         }
         self.showselectedEmails()
     }
@@ -321,6 +324,7 @@ class TCreateToast_AddCollabVC: UIViewController, UITableViewDelegate, UITableVi
     
     func showselectedEmails()
     {
+        return
         self.txt_collaborators.text = ""
         var attributedText = NSMutableAttributedString()
         
@@ -969,5 +973,74 @@ class TCreateToast_AddCollabVC: UIViewController, UITableViewDelegate, UITableVi
 //                
 //            }
         }
+    }
+}
+
+extension TCreateToast_AddCollabVC: THContactPickerDelegate {
+    func contactPicker(_ contactPicker: THContactPickerView!, textFieldDidChange textField: UITextField!) {
+        if contactPicker == self.collabolators_picker {
+            self.filteredEmails.removeAll()
+            self.suggestion_table.isHidden = false
+            guard let textToSearch = textField.text else { return }
+            for email in self.emailArray
+            {
+                if email.lowercased().contains(textToSearch.lowercased())
+                {
+                    self.filteredEmails.append(email)
+                }
+            }
+            if(self.filteredEmails.count == 0)
+            {
+                self.suggestion_table.isHidden = true
+            }
+            else{
+                self.suggestion_table.isHidden = false
+                self.suggestion_table.reloadData()
+                
+            }
+        }
+    }
+    
+    func contactPicker(_ contactPicker: THContactPickerView!, textFieldDidBeginEditing textField: UITextField!) {
+        if contactPicker == self.collabolators_picker
+        {
+            let temp = textField.text
+            if temp == "Enter emails separated by a space or a newline"
+            {
+                textField.text = ""
+            }
+            self.suggestion_table.isHidden = true
+            self.scrollView.setContentOffset(CGPoint(x:0,y:300), animated: true)
+        }
+    }
+    
+    func contactPicker(_ contactPicker: THContactPickerView!, textFieldShouldReturn textField: UITextField!) -> Bool {
+        return true
+    }
+    
+    func contactPicker(_ contactPicker: THContactPickerView!, didSelectContact contact: Any!) {
+        
+    }
+    
+    func contactPicker(_ contactPicker: THContactPickerView!, didRemoveContact contact: Any!) {
+        if contactPicker == collabolators_picker {
+            guard let contact = contact as? String else { return }
+            self.remove(contact: contact, contacts: &self.selectedEmails)
+        }
+    }
+    
+    // MARK: Helper
+    func addContact(contact: String, contactPicker: THContactPickerView) {
+        let style = THContactViewStyle(textColor: UIColor.black, backgroundColor: UIColor(hex : "e3d1a1"), cornerRadiusFactor: 2)
+        let seletedStyle = THContactViewStyle(textColor: UIColor.black, backgroundColor: UIColor(hex : "e3d1a1"), cornerRadiusFactor: 2)
+        contactPicker.addContact(contact, withName: contact, with: style, andSelectedStyle: seletedStyle)
+    }
+    
+    func remove(contact: String, contacts: inout [String]) {
+        contacts = contacts.filter({ $0 != contact })
+    }
+    
+    func clearContact(contacts: inout [String]) {
+        contacts.removeAll()
     }
 }

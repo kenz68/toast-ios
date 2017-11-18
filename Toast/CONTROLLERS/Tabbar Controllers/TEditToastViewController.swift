@@ -21,7 +21,10 @@ class TEditToastViewController: UIViewController, UITextViewDelegate, UITextFiel
     @IBOutlet weak var txt_category: UITextField!
     @IBOutlet weak var txt_toastes: UITextView!
     
+    @IBOutlet weak var toastes_picker: THContactPickerView!
     @IBOutlet weak var txt_collaborators: UITextView!
+    
+    @IBOutlet weak var collaborators_picker: THContactPickerView!
     @IBOutlet weak var switch_notification: UISwitch!
     @IBOutlet weak var table_toates: UITableView!
     @IBOutlet weak var table_collaborators: UITableView!
@@ -83,9 +86,8 @@ class TEditToastViewController: UIViewController, UITextViewDelegate, UITextFiel
         self.table_toates.delegate = self
         self.table_toates.dataSource = self
         
-
-        
-
+        self.toastes_picker.delegate = self
+        self.collaborators_picker.delegate = self
         
         self.CustomiseView()
         
@@ -176,13 +178,16 @@ class TEditToastViewController: UIViewController, UITextViewDelegate, UITextFiel
         for item in toasteeUsersArr
         {
             self.selectedToatesEmails.append((item as! AddMemberModel).member_Email_id)
+            self.selectedToatesEmails = Array(Set(self.selectedToatesEmails))
+            self.addContact(contact: (item as! AddMemberModel).member_Email_id, contactPicker: toastes_picker)
         }
         self.showsToatesselectedEmails()
         
         for item in membersArr
         {
             self.selectedCollaboraterEmails.append((item as! AddMemberModel).member_Email_id)
-
+            self.selectedCollaboraterEmails = Array(Set(self.selectedCollaboraterEmails))
+            self.addContact(contact: (item as! AddMemberModel).member_Email_id, contactPicker: collaborators_picker)
         }
         self.showsCollaboratorselectedEmails()
         
@@ -671,6 +676,7 @@ class TEditToastViewController: UIViewController, UITextViewDelegate, UITextFiel
             if(!self.selectedCollaboraterEmails.contains(self.filteredEmails[indexPath.row]))
             {
                 self.selectedCollaboraterEmails.append(self.filteredEmails[indexPath.row])
+                self.addContact(contact: self.filteredEmails[indexPath.row], contactPicker: collaborators_picker)
             }
             self.showsCollaboratorselectedEmails()
         }
@@ -679,6 +685,7 @@ class TEditToastViewController: UIViewController, UITextViewDelegate, UITextFiel
             if(!self.selectedToatesEmails.contains(self.filteredEmails[indexPath.row]))
             {
                 self.selectedToatesEmails.append(self.filteredEmails[indexPath.row])
+                self.addContact(contact: self.filteredEmails[indexPath.row], contactPicker: toastes_picker)
             }
             self.showsToatesselectedEmails()
         }
@@ -719,6 +726,7 @@ class TEditToastViewController: UIViewController, UITextViewDelegate, UITextFiel
     
     func showsCollaboratorselectedEmails()
     {
+        return
         self.txt_collaborators.text = ""
         let attributedText = NSMutableAttributedString()
         
@@ -753,6 +761,7 @@ class TEditToastViewController: UIViewController, UITextViewDelegate, UITextFiel
     
     func showsToatesselectedEmails()
     {
+        return
         self.txt_toastes.text = ""
         let attributedText = NSMutableAttributedString()
         
@@ -1065,9 +1074,107 @@ class TEditToastViewController: UIViewController, UITextViewDelegate, UITextFiel
         
         return true
     }
+}
 
+extension TEditToastViewController: THContactPickerDelegate {
+    func contactPicker(_ contactPicker: THContactPickerView!, textFieldDidChange textField: UITextField!) {
+        if contactPicker == self.toastes_picker{
+            self.filteredEmails.removeAll()
+            self.table_toates.isHidden = false
+            guard let textToSearch = textField.text else { return }
+            for email in self.emailArray
+            {
+                if email.lowercased().contains(textToSearch.lowercased())
+                {
+                    self.filteredEmails.append(email)
+                }
+            }
+            if(self.filteredEmails.count == 0)
+            {
+                self.table_toates.isHidden = true
+            }
+            else{
+                self.table_toates.isHidden = false
+                self.table_toates.reloadData()
+                
+            }
+        } else if contactPicker == self.collaborators_picker {
+            self.filteredEmails.removeAll()
+            self.table_collaborators.isHidden = false
+            guard let textToSearch = textField.text else { return }
+            for email in self.emailArray
+            {
+                if email.lowercased().contains(textToSearch.lowercased())
+                {
+                    self.filteredEmails.append(email)
+                }
+            }
+            if(self.filteredEmails.count == 0)
+            {
+                self.table_collaborators.isHidden = true
+            }
+            else{
+                self.table_collaborators.isHidden = false
+                self.table_collaborators.reloadData()
+                
+            }
+        }
+    }
     
+    func contactPicker(_ contactPicker: THContactPickerView!, textFieldDidBeginEditing textField: UITextField!) {
+        if contactPicker == self.toastes_picker
+        {
+            self.table_toates.isHidden = false
+            self.table_collaborators.isHidden = true
+            
+            self.scroll_view.setContentOffset(CGPoint(x:0,y:300), animated: true)
+        }
+        
+        if contactPicker == self.collaborators_picker
+        {
+            if(self.txt_collaborators.text == "Enter emails separated by a space or a comma")
+            {
+                self.txt_collaborators.text = ""
+            }
+            
+            self.table_toates.isHidden = true
+            self.table_collaborators.isHidden = false
+            
+            self.scroll_view.setContentOffset(CGPoint(x:0,y:450), animated: true)
+        }
+        
+    }
     
+    func contactPicker(_ contactPicker: THContactPickerView!, textFieldShouldReturn textField: UITextField!) -> Bool {
+        return true
+    }
     
+    func contactPicker(_ contactPicker: THContactPickerView!, didSelectContact contact: Any!) {
+        
+    }
+    
+    func contactPicker(_ contactPicker: THContactPickerView!, didRemoveContact contact: Any!) {
+        guard let contact = contact as? String else { return }
+        if contactPicker == toastes_picker {
+            self.remove(contact: contact, contacts: &self.selectedToatesEmails)
+        } else if contactPicker == collaborators_picker {
+            self.remove(contact: contact, contacts: &self.selectedCollaboraterEmails)
+        }
+    }
+    
+    // MARK: Helper
+    func addContact(contact: String, contactPicker: THContactPickerView) {
+        let style = THContactViewStyle(textColor: UIColor.black, backgroundColor: UIColor(hex : "e3d1a1"), cornerRadiusFactor: 2)
+        let seletedStyle = THContactViewStyle(textColor: UIColor.black, backgroundColor: UIColor(hex : "e3d1a1"), cornerRadiusFactor: 2)
+        contactPicker.addContact(contact, withName: contact, with: style, andSelectedStyle: seletedStyle)
+    }
+    
+    func remove(contact: String, contacts: inout [String]) {
+        contacts = contacts.filter({ $0 != contact })
+    }
+    
+    func clearContact(contacts: inout [String]) {
+        contacts.removeAll()
+    }
 }
 
