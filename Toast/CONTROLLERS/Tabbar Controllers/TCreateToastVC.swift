@@ -1017,8 +1017,8 @@ extension TCreateToastVC: THContactPickerDelegate {
     // MARK: Helper
     func addContact(contact: String, contacts: inout [String], contactPicker: THContactPickerView) {
         if contacts.contains(contact) { return }
-        let style = THContactViewStyle(textColor: UIColor.white, backgroundColor: UIColor.blue, cornerRadiusFactor: 5)
-        let seletedStyle = THContactViewStyle(textColor: UIColor.white, backgroundColor: UIColor.red, cornerRadiusFactor: 5)
+        let style = THContactViewStyle(textColor: UIColor.black, backgroundColor: UIColor(hex : "e3d1a1"), cornerRadiusFactor: 2)
+        let seletedStyle = THContactViewStyle(textColor: UIColor.black, backgroundColor: UIColor(hex : "e3d1a1"), cornerRadiusFactor: 2)
         contactPicker.addContact(contact, withName: contact, with: style, andSelectedStyle: seletedStyle)
         contacts.append(contact)
     }
