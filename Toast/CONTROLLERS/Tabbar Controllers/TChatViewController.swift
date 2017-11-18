@@ -28,6 +28,7 @@ class TChatViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var selectedImage1: UIImage!
     var screenTag:Int = 0 // 2 for Toast screen, 1 for diary screen
     @IBOutlet weak var const_textEnterView: NSLayoutConstraint!
+    var chatFrame: CGRect?
     
     var selectedToastId:String = String()
     var selected_PostId:String = String()
@@ -135,6 +136,14 @@ class TChatViewController: UIViewController, UITableViewDelegate, UITableViewDat
       
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        print("===current chat bar frame ===== \(self.chatBar.frame)")
+        guard let cf = self.chatFrame else { return }
+        self.chatBar.frame = cf
+        print("===new chat bar frame ===== \(self.chatBar.frame)")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -283,8 +292,11 @@ class TChatViewController: UIViewController, UITableViewDelegate, UITableViewDat
             UIView.animate(withDuration: 0, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
                 self.chatBar.backgroundColor = .clear
                 self.view.bringSubview(toFront: self.chatBar)
-                self.chatBar.frame.origin.x = 0
-                self.chatBar.frame.origin.y = (keyboardFrame?.origin.y)! - self.chatBar.frame.height - 60
+                let y = (keyboardFrame?.origin.y)! - self.chatBar.frame.height - 60
+                var f = self.chatBar.frame
+                f.origin.y = y
+                self.chatFrame = f
+                self.chatBar.frame = f
                 self.chatBar.layoutIfNeeded()
                 self.view.layoutIfNeeded()
                 
