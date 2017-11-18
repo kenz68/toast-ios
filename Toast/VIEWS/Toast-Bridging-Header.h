@@ -13,3 +13,4 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "AGPushNoteView.h"
 #import "UIScrollView+InfiniteScroll.h"
+#import "THContactTextField.h"

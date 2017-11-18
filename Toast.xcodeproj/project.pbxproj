@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13D6401A1FBFF8DB009D4AA2 /* THContactPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D640111FBFF8DA009D4AA2 /* THContactPickerView.m */; };
+		13D6401B1FBFF8DB009D4AA2 /* THContactViewStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D640121FBFF8DA009D4AA2 /* THContactViewStyle.m */; };
+		13D6401C1FBFF8DB009D4AA2 /* THContactTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D640131FBFF8DA009D4AA2 /* THContactTextField.m */; };
+		13D6401D1FBFF8DB009D4AA2 /* THContactPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D640141FBFF8DA009D4AA2 /* THContactPickerViewController.xib */; };
+		13D6401E1FBFF8DB009D4AA2 /* THContactView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D640151FBFF8DA009D4AA2 /* THContactView.m */; };
 		6C0DB6611DD1FA09006E12AA /* TGetStartedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0DB6601DD1FA09006E12AA /* TGetStartedVC.swift */; };
 		6C20500A1DCC68D600C35874 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2050091DCC68D600C35874 /* AppDelegate.swift */; };
 		6C20500C1DCC68D600C35874 /* TLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C20500B1DCC68D600C35874 /* TLandingView.swift */; };
@@ -128,6 +133,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13D640111FBFF8DA009D4AA2 /* THContactPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THContactPickerView.m; sourceTree = "<group>"; };
+		13D640121FBFF8DA009D4AA2 /* THContactViewStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THContactViewStyle.m; sourceTree = "<group>"; };
+		13D640131FBFF8DA009D4AA2 /* THContactTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THContactTextField.m; sourceTree = "<group>"; };
+		13D640141FBFF8DA009D4AA2 /* THContactPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THContactPickerViewController.xib; sourceTree = "<group>"; };
+		13D640151FBFF8DA009D4AA2 /* THContactView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THContactView.m; sourceTree = "<group>"; };
+		13D640161FBFF8DA009D4AA2 /* THContactTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THContactTextField.h; sourceTree = "<group>"; };
+		13D640171FBFF8DA009D4AA2 /* THContactViewStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THContactViewStyle.h; sourceTree = "<group>"; };
+		13D640181FBFF8DA009D4AA2 /* THContactPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THContactPickerView.h; sourceTree = "<group>"; };
+		13D640191FBFF8DA009D4AA2 /* THContactView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THContactView.h; sourceTree = "<group>"; };
 		3A72D14A0835BD9CAB19B0CB /* Pods-Toast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Toast/Pods-Toast.debug.xcconfig"; sourceTree = "<group>"; };
 		6C0DB6601DD1FA09006E12AA /* TGetStartedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGetStartedVC.swift; sourceTree = "<group>"; };
 		6C2050061DCC68D600C35874 /* Toast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toast.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -289,6 +303,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13D640101FBFF8DA009D4AA2 /* ContactPickerTextView */ = {
+			isa = PBXGroup;
+			children = (
+				13D640111FBFF8DA009D4AA2 /* THContactPickerView.m */,
+				13D640121FBFF8DA009D4AA2 /* THContactViewStyle.m */,
+				13D640131FBFF8DA009D4AA2 /* THContactTextField.m */,
+				13D640141FBFF8DA009D4AA2 /* THContactPickerViewController.xib */,
+				13D640151FBFF8DA009D4AA2 /* THContactView.m */,
+				13D640161FBFF8DA009D4AA2 /* THContactTextField.h */,
+				13D640171FBFF8DA009D4AA2 /* THContactViewStyle.h */,
+				13D640181FBFF8DA009D4AA2 /* THContactPickerView.h */,
+				13D640191FBFF8DA009D4AA2 /* THContactView.h */,
+			);
+			path = ContactPickerTextView;
+			sourceTree = "<group>";
+		};
 		2EED87D24CF307901ABE72E0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +446,7 @@
 		6C20501E1DCC70A800C35874 /* VIEWS */ = {
 			isa = PBXGroup;
 			children = (
+				13D640101FBFF8DA009D4AA2 /* ContactPickerTextView */,
 				6D1372F01EB6053F00D54A2F /* CoachmarkView */,
 				6DED39E51E4613F3002B631D /* AGPushNotification */,
 				6C8C9DF51E44733600CDA4DC /* CustomPopUp */,
@@ -757,6 +788,7 @@
 				6D539A891DE1AF3B007FD522 /* TokenView.xib in Resources */,
 				6C8C9DF21E44731A00CDA4DC /* CustomFavorites.xib in Resources */,
 				6D631BB81DDCD50F00B33513 /* DiaryCell.xib in Resources */,
+				13D6401D1FBFF8DB009D4AA2 /* THContactPickerViewController.xib in Resources */,
 				6DFBE5921EA7D9AA008DFD19 /* HowToUseCellOne.xib in Resources */,
 				6D3E6B211DEF426700421841 /* ViewToastDetailCell.xib in Resources */,
 				6CCF75391EA7967800A7651F /* AboutCell.xib in Resources */,
@@ -880,6 +912,7 @@
 				6DFBE5911EA7D9AA008DFD19 /* HowToUseCellOne.swift in Sources */,
 				6D1148F61DDE22AE00A5C56A /* TCreateToast_AddCategoryVC.swift in Sources */,
 				6D8ECEC11DE4B7370023E448 /* EditToastCell.swift in Sources */,
+				13D6401C1FBFF8DB009D4AA2 /* THContactTextField.m in Sources */,
 				6C9011A61E09196F00EF37DF /* UIView+Adition.swift in Sources */,
 				6D0B5D101DD63E9E001206C6 /* Twinkle.swift in Sources */,
 				6D8D99461DF1F0B60039178E /* TChatViewController.swift in Sources */,
@@ -887,6 +920,7 @@
 				6D52178F1DF8702300A6C640 /* ResizableFontTextView.swift in Sources */,
 				6D7307CD1DFB3F32006FA190 /* RSKTouchView.m in Sources */,
 				6CDE31F41E5C3FC800D290EC /* L3SDKLazyTableView.swift in Sources */,
+				13D6401E1FBFF8DB009D4AA2 /* THContactView.m in Sources */,
 				6C6DF2C51F28C6560099E4B8 /* UIView+Overlay.swift in Sources */,
 				6DC4D8C61DD0F1E600AB2571 /* TMoreVC.swift in Sources */,
 				6CD923D41F2093EA007DF4EE /* AddCollabCell.swift in Sources */,
@@ -924,11 +958,13 @@
 				6D1148FA1DDE22E800A5C56A /* TCreateToast_AddMemberVC.swift in Sources */,
 				6CA9B2F61DD5D8D40090C28D /* TEmailChangeVC.swift in Sources */,
 				6DBCDC831DD8BC8600AA1AFC /* ToastsCell.swift in Sources */,
+				13D6401A1FBFF8DB009D4AA2 /* THContactPickerView.m in Sources */,
 				6DED39E91E4613F3002B631D /* AGPushNoteView.m in Sources */,
 				6D631BB01DDCC6D400B33513 /* Emitter.m in Sources */,
 				C3623A411F96A74E00D2EF29 /* MemberPicker.swift in Sources */,
 				6C20500A1DCC68D600C35874 /* AppDelegate.swift in Sources */,
 				6D7307B71DFB399B006FA190 /* WebService.swift in Sources */,
+				13D6401B1FBFF8DB009D4AA2 /* THContactViewStyle.m in Sources */,
 				6C8E16DA1DFEDF6500B787BE /* AddMemberModel.swift in Sources */,
 				6D1149001DDE261100A5C56A /* ToasteThemeCell.swift in Sources */,
 				6C9011A31E09186100EF37DF /* Button+Addition.swift in Sources */,
@@ -1088,7 +1124,7 @@
 				INFOPLIST_FILE = Toast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.toastapp.Toast;
+				PRODUCT_BUNDLE_IDENTIFIER = im.ananse.app.Toast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1113,7 +1149,7 @@
 				INFOPLIST_FILE = Toast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.toastapp.Toast;
+				PRODUCT_BUNDLE_IDENTIFIER = im.ananse.app.Toast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
