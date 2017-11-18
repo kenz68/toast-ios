@@ -32,6 +32,8 @@ class TCreateToastVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var category_suggestion: UITableView!
     @IBOutlet weak var txt_categories: UITextField!
     @IBOutlet weak var txt_toaste: UITextView!
+    
+    @IBOutlet weak var toaste_picker: THContactPickerView!
     @IBOutlet weak var suggestion_table: UITableView!
     @IBOutlet weak var scroll_view: UIScrollView!
     
@@ -111,6 +113,8 @@ class TCreateToastVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // regis table view cell
         
+        // contact pickerview
+        toaste_picker.delegate = self
     }
     
     func tapped(recongnizer : UITapGestureRecognizer)
@@ -592,7 +596,9 @@ class TCreateToastVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             print(self.filteredEmails[indexPath.row])
             if(!self.selectedEmails.contains(self.filteredEmails[indexPath.row]))
             {
-                self.selectedEmails.append(self.filteredEmails[indexPath.row])
+                let email = self.filteredEmails[indexPath.row]
+                //self.selectedEmails.append(self.filteredEmails[indexPath.row])
+                self.addContact(contact: email, contacts: &self.selectedEmails, contactPicker: toaste_picker)
             }
             self.showselectedEmails()
         }
@@ -953,3 +959,76 @@ class TCreateToastVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 }
 
+
+extension TCreateToastVC: THContactPickerDelegate {
+    func contactPicker(_ contactPicker: THContactPickerView!, textFieldDidChange textField: UITextField!) {
+        if contactPicker == self.toaste_picker {
+            self.filteredEmails.removeAll()
+            self.suggestion_table.isHidden = false
+            guard let textToSearch = textField.text else { return }
+            for email in self.emailArray
+            {
+                if email.lowercased().contains(textToSearch.lowercased())
+                {
+                    self.filteredEmails.append(email)
+                }
+            }
+            if(self.filteredEmails.count == 0)
+            {
+                self.suggestion_table.isHidden = true
+            }
+            else{
+                self.suggestion_table.isHidden = false
+                self.suggestion_table.reloadData()
+                
+            }
+        }
+    }
+    
+    func contactPicker(_ contactPicker: THContactPickerView!, textFieldDidBeginEditing textField: UITextField!) {
+        if contactPicker == self.toaste_picker
+        {
+            let temp = textField.text
+            if temp == "Enter emails separated by a space or a newline"
+            {
+                textField.text = ""
+            }
+            
+            self.suggestion_table.isHidden = true
+            
+            self.scroll_view.setContentOffset(CGPoint(x:0,y:300), animated: true)
+        }
+    }
+    
+    func contactPicker(_ contactPicker: THContactPickerView!, textFieldShouldReturn textField: UITextField!) -> Bool {
+        return true
+    }
+    
+    func contactPicker(_ contactPicker: THContactPickerView!, didSelectContact contact: Any!) {
+        
+    }
+    
+    func contactPicker(_ contactPicker: THContactPickerView!, didRemoveContact contact: Any!) {
+        if contactPicker == toaste_picker {
+            self.remove(contact: contact as! String, contacts: &self.selectedEmails)
+        }
+    }
+    
+    // MARK: Helper
+    func addContact(contact: String, contacts: inout [String], contactPicker: THContactPickerView) {
+        if contacts.contains(contact) { return }
+        let style = THContactViewStyle(textColor: UIColor.white, backgroundColor: UIColor.blue, cornerRadiusFactor: 5)
+        let seletedStyle = THContactViewStyle(textColor: UIColor.white, backgroundColor: UIColor.red, cornerRadiusFactor: 5)
+        contactPicker.addContact(contact, withName: contact, with: style, andSelectedStyle: seletedStyle)
+        contacts.append(contact)
+    }
+    
+    func remove(contact: String, contacts: inout [String]) {
+        contacts = contacts.filter({ $0 != contact })
+    }
+    
+    func clearContact(contacts: inout [String]) {
+        contacts.removeAll()
+    }
+    
+}
