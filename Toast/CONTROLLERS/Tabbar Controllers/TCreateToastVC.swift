@@ -216,9 +216,7 @@ class TCreateToastVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func groupToast(_ sender: Any) {
-        
-        let _txt_toaste = self.txt_toaste.text
-        if ((_txt_toaste?.isEmpty)! || _txt_toaste == "Enter emails separated by a space or a comma")
+        if (self.selectedEmails.count == 0)
         {
             
             let alert = UIAlertController(title: "Toastes", message: "Please enter emails of toastes", preferredStyle: UIAlertControllerStyle.alert)
@@ -230,7 +228,6 @@ class TCreateToastVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.present(alert, animated: true, completion: nil)
             
             return
-            
         }
         
         if (!self.isCategorySelected || !categoriyIsValid())
