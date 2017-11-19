@@ -154,6 +154,7 @@ class TChatViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         self.txtfld_Message.text = self.toast_message
         
+        self.userImageInput.contentMode = .scaleAspectFit
         if self.toast_image != nil
         {
             self.isImageSelected = true
