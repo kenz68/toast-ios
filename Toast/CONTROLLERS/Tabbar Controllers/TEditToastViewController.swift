@@ -672,7 +672,7 @@ class TEditToastViewController: UIViewController, UITextViewDelegate, UITextFiel
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.isHidden = true
         if(tableView == self.table_collaborators)
         {
             if(!self.selectedCollaboraterEmails.contains(self.filteredEmails[indexPath.row]))
