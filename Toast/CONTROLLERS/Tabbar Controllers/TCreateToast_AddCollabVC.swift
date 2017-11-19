@@ -127,6 +127,7 @@ class TCreateToast_AddCollabVC: UIViewController, UITableViewDelegate, UITableVi
         self.lbl_category.text = "   A toast to celebrate \(category)"
         
         collabolators_picker.delegate = self
+        collabolators_picker.maxNumberOfLines = 4
     }
     
     func createTimePicker()

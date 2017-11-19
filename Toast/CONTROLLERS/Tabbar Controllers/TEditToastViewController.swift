@@ -87,7 +87,9 @@ class TEditToastViewController: UIViewController, UITextViewDelegate, UITextFiel
         self.table_toates.dataSource = self
         
         self.toastes_picker.delegate = self
+        self.toastes_picker.maxNumberOfLines = 4
         self.collaborators_picker.delegate = self
+        self.collaborators_picker.maxNumberOfLines = 4
         
         self.CustomiseView()
         

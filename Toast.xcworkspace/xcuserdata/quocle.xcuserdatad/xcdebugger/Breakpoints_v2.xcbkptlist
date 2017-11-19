@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Toast/CONTROLLERS/Tabbar Controllers/TCreateToastVC.swift"
-            timestampString = "532756881.678326"
+            timestampString = "532790850.944571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "470"
-            endingLineNumber = "470"
+            startingLineNumber = "471"
+            endingLineNumber = "471"
             landmarkName = "btn_DoneClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Toast/CONTROLLERS/Tabbar Controllers/TCreateToast_AddCollabVC.swift"
-            timestampString = "532756881.678929"
+            timestampString = "532790850.944818"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1040"
-            endingLineNumber = "1040"
+            startingLineNumber = "1041"
+            endingLineNumber = "1041"
             landmarkName = "remove(contact:contacts:)"
             landmarkType = "7">
             <Locations>
@@ -52,11 +52,11 @@
                   moduleName = "Toast"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/quocle/freelancer_projects/toast-ios/Toast/CONTROLLERS/Tabbar%20Controllers/TCreateToast_AddCollabVC.swift"
-                  timestampString = "532756882.007095"
+                  timestampString = "532790765.668118"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1040"
-                  endingLineNumber = "1040"
+                  startingLineNumber = "1041"
+                  endingLineNumber = "1041"
                   offsetFromSymbolStart = "41">
                </Location>
                <Location
@@ -67,11 +67,11 @@
                   moduleName = "Toast"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/quocle/freelancer_projects/toast-ios/Toast/CONTROLLERS/Tabbar%20Controllers/TCreateToast_AddCollabVC.swift"
-                  timestampString = "532756882.010811"
+                  timestampString = "532790765.673703"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1040"
-                  endingLineNumber = "1040"
+                  startingLineNumber = "1041"
+                  endingLineNumber = "1041"
                   offsetFromSymbolStart = "35">
                </Location>
             </Locations>
@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Toast/CONTROLLERS/Tabbar Controllers/TEditToastViewController.swift"
-            timestampString = "532756881.679048"
+            timestampString = "532790850.944983"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1157"
-            endingLineNumber = "1157"
+            startingLineNumber = "1159"
+            endingLineNumber = "1159"
             landmarkName = "contactPicker(_:didRemoveContact:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -100,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Toast/CONTROLLERS/Tabbar Controllers/TEditToastViewController.swift"
-            timestampString = "532756881.679126"
+            timestampString = "532790850.945158"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "381"
-            endingLineNumber = "381"
+            startingLineNumber = "383"
+            endingLineNumber = "383"
             landmarkName = "editToastDetails()"
             landmarkType = "7">
          </BreakpointContent>

@@ -115,6 +115,7 @@ class TCreateToastVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // contact pickerview
         toaste_picker.delegate = self
+        toaste_picker.maxNumberOfLines = 4
     }
     
     func tapped(recongnizer : UITapGestureRecognizer)

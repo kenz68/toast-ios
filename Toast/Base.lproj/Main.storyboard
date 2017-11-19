@@ -709,6 +709,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWt-hy-WKI" customClass="THContactPickerView">
                                         <rect key="frame" x="10" y="329.5" width="300" height="130"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="130" id="6I7-vc-Sfv"/>
+                                        </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Whom to Raise this Toast To (Toastees)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IR-KD-DoB">
                                         <rect key="frame" x="10" y="308.5" width="300" height="21"/>
@@ -762,6 +765,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2d-mn-lsA" customClass="THContactPickerView">
                                         <rect key="frame" x="10" y="489.5" width="300" height="130"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="130" id="iyB-Ru-RIl"/>
+                                        </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Collaborators" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kah-c9-aMC">
                                         <rect key="frame" x="10" y="464.5" width="300" height="21"/>
@@ -4495,6 +4501,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bp5-kd-vPf" customClass="THContactPickerView">
                                         <rect key="frame" x="10" y="90" width="300" height="130"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="130" id="ZGN-Im-vZH"/>
+                                        </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eEZ-xP-LpR">
                                         <rect key="frame" x="10" y="220" width="300" height="165"/>
@@ -5161,6 +5170,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2CX-aW-Hdl" customClass="THContactPickerView">
                                         <rect key="frame" x="10" y="292" width="300" height="130"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="130" id="NZd-2P-1jo"/>
+                                        </constraints>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Additional details to the collaborators about the toast" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Ci-v4-G35">
                                         <rect key="frame" x="10" y="22" width="300" height="100"/>
@@ -5402,7 +5414,7 @@
         <segue reference="nUf-Wh-5IM"/>
         <segue reference="eKO-Jt-jF9"/>
         <segue reference="Z8A-5N-zaV"/>
-        <segue reference="wiY-Lp-I2K"/>
-        <segue reference="som-l6-Y5n"/>
+        <segue reference="0b4-Ys-T0R"/>
+        <segue reference="jsj-iR-6fq"/>
     </inferredMetricsTieBreakers>
 </document>
